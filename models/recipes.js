@@ -6,10 +6,10 @@ const recipeSchema = new Schema({
   title: { type: String, required: true },
   ingredients: [{ type: String }],
   instructions: { type: String, required: true },
-  cookTime: { type: Number, default: 0 },
+  cookTime: { type: String, default: 0 },
   createdAt: { type: Date, default: Date.now },
 });
 
-const Recipe = mongoose.model('Recipes', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipe;

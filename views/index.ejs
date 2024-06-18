@@ -7,9 +7,9 @@
 </head>
 <body>
     <ul class = 'recipe'>
-        <% for (let i=0; i < allRecipe.title; i++){ %>
+        <% for (let i=0; i < allRecipes.length; i++){ %>
             <li>
-                <a href="/recipes/<%= i %>"><%=allRecipe%></a>
+                <a href="/recipes/<%= i %>"><%=allRecipes[i].title%></a>
             </li>
          <% } %>
     </ul>

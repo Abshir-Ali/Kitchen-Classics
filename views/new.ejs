@@ -9,13 +9,13 @@
     <h1>Create a New Recipe</h1>
     <form action="/recipes" method="POST">
         <label for="title">TITLE:</label><br/>
-        <input type="text" name="title" id="title" placeholder="Enter Recipe Title" /><br>
+        <input type="text" name="title" id="title" placeholder="Enter Recipe Title" required/><br>
         <label for="ingredients">ingredients:</label><br/>
-        <input type="text" name="ingredients" id="ingredients" placeholder="Enter Ingredients" /><br>
+        <input type="text" name="ingredients" id="ingredients" placeholder="Enter Ingredients" required/><br>
         <label for="instructions">instructions:</label><br/>
-        <input type="text" name="instructions" id="instructions" placeholder="Enter Intstructions" /><br>
+        <input type="text" name="instructions" id="instructions" placeholder="Enter Intstructions" required /><br>
         <label for="cookTime">Cook Time:</label><br/>
-        <input type="text" name="cookTime" id="cookTime" placeholder="Enter Cook Time " /><br>
+        <input type="text" name="cookTime" id="cookTime" placeholder="Enter Cook Time " required /><br>
         <input type="submit" Value="Submit Recipe" /><br>
     </form>
 </body>
