@@ -9,9 +9,10 @@
     <ul class = 'recipe'>
         <% for (let i=0; i < allRecipes.length; i++){ %>
             <li>
-                <a href="/recipes/<%= i %>"><%=allRecipes[i].title%></a>
+                <a href="/recipes/<%= allRecipes[i]._id %>"><%=allRecipes[i].title%></a>
             </li>
          <% } %>
+         
     </ul>
 </body>
 </html>

@@ -20,18 +20,18 @@ async function connectToMongo() {
   }
   connectToMongo()
 
-  // Seed Data
-  async function insertRecipeData(seedData) {
-    try {
-      const recipes = await Recipe.insertMany(seedData);
-      console.log("added provided vampire data", recipes);
-    } catch (err) {
-      console.error(err)
-      process.exit(1)
-    } 
-  }
+//   Seed Data
+//   async function insertRecipeData(seedData) {
+//     try {
+//       const recipes = await Recipe.insertMany(seedData);
+//       console.log("added provided vampire data", recipes);
+//     } catch (err) {
+//       console.error(err)
+//       process.exit(1)
+//     } 
+//   }
   
-  insertRecipeData(seedData)
+//   insertRecipeData(seedData)
 
 
   //MIDDLEWARE
@@ -71,6 +71,25 @@ app.post("/recipes", async (req, res)=> {
     }
 })
 
+//Show
+app.get('/recipes/:id', async (req,res) => {
+    try {
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(404).send('Invalid recipe id');
+        }
+
+     const singleRecipe = await Recipe.findOne({ _id: req.params.id })
+
+     if (!singleRecipe) {
+        return res.status(404).send('Recipe not found');
+    }
+
+     res.render('show', {singleRecipe})
+    } catch (err) {
+    console.error(err)
+     res.status(500).send('Error fetching recipe')
+    }
+   })
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

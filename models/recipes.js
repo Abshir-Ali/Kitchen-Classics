@@ -1,4 +1,5 @@
 
+const moment = require('moment')
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -7,7 +8,7 @@ const recipeSchema = new Schema({
   ingredients: [{ type: String }],
   instructions: { type: String, required: true },
   cookTime: { type: String, default: 0 },
-  createdAt: { type: Date, default: Date.now },
+  createdAt: { type: String, default: () => moment().format('YYYY-MM-DD HH:mm:ss') }
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
