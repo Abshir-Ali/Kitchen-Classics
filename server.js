@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const seedData = require('./models/seed_recipes.js')
+const methodOverride = require('method-override');
+
 const Recipe = require('./models/recipes')
 const PORT = process.env.PORT || 3000;
 
@@ -37,7 +39,7 @@ async function connectToMongo() {
   //MIDDLEWARE
   app.use(express.urlencoded({ extended: true }));
   app.set('view engine', 'ejs')
-  
+  app.use(methodOverride('_method'))
   
   //REMEMBER INDUCES
 
@@ -71,6 +73,35 @@ app.post("/recipes", async (req, res)=> {
     }
 })
 
+//Edit
+
+app.get('/recipes/:id/edit', async (req,res) => {
+   try {
+    const recipe = await Recipe.findById(req.params.id)
+    if (!recipe) {
+        return res.status(404).send('recipe not found')
+    } 
+    res.render('edit.ejs', {
+        recipe
+    })
+   } catch (err) {
+    res.status(500).send(err)
+   }
+})
+
+// Update
+
+app.put('/recipes/:id', async (req,res) => {
+    try {
+        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!updatedRecipe) {
+            return res.status(404).send('Recipe not found')
+        }
+        res.redirect('/recipes')
+    } catch (err) {
+        res.status(500).send(err)
+    }
+} )
 //Show
 app.get('/recipes/:id', async (req,res) => {
     try {
