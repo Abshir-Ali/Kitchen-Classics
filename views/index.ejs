@@ -11,6 +11,9 @@
             <li>
                 <a href="/recipes/<%= allRecipes[i]._id %>"><%=allRecipes[i].title%></a>
                 <a href="/recipes/<%=  allRecipes[i]._id %>/edit">Edit</a>
+                <form id="delete-form-<%= allRecipes[i]._id %>" action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <a  href="#" onclick="document.getElementById('delete-form-<%= allRecipes[i]._id %>').submit(); return false;">Delete</a>
+                </form>
             </li>
          <% } %>
 

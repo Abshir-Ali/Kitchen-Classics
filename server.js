@@ -60,7 +60,30 @@ app.get('/recipes', async (req, res) => {
 app.get('/recipes/new', (req,res)=>{
     res.render('new.ejs')
 })
+//Delete
+app.delete('/recipes/:id', async (req, res) => {
+    try {
+        const recipeId = req.params.id
+        await Recipe.deleteOne({_id: recipeId})
+        res.redirect('/recipes')  
+    } catch (err){
+        res.status(500).send(err)
+    }
 
+})
+// Update
+
+app.put('/recipes/:id', async (req,res) => {
+    try {
+        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!updatedRecipe) {
+            return res.status(404).send('Recipe not found')
+        }
+        res.redirect('/recipes')
+    } catch (err) {
+        res.status(500).send(err)
+    }
+} )
 //Create
 app.post("/recipes", async (req, res)=> {
     try {
@@ -89,19 +112,6 @@ app.get('/recipes/:id/edit', async (req,res) => {
    }
 })
 
-// Update
-
-app.put('/recipes/:id', async (req,res) => {
-    try {
-        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        if (!updatedRecipe) {
-            return res.status(404).send('Recipe not found')
-        }
-        res.redirect('/recipes')
-    } catch (err) {
-        res.status(500).send(err)
-    }
-} )
 //Show
 app.get('/recipes/:id', async (req,res) => {
     try {
