@@ -15,15 +15,34 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 20px;
     width: 40%;
     margin: 0 auto;
 }
 .link {
     font-size: 20px;
+    margin-bottom: 40px;
 }
 
+.show-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.show-info2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
 .recipe-img {
     border-radius: 10px;
     max-width: 300px;
+}
+.recipe-content {
+    font-size: 20px;
+    color: white;
+}
+
+.span-content {
+    color: rgb(222, 126, 47);
 }
