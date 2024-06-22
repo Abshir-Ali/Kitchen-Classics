@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="/css/new.css">
 </head>
 <body>
-    <h1>Create a New Recipe</h1>
-    <form action="/recipes" method="POST">
-        <label for="title">TITLE:</label><br/>
-        <input type="text" name="title" id="title" placeholder="Enter Recipe Title" required/><br>
-        <label for="ingredients">ingredients:</label><br/>
-        <input type="text" name="ingredients" id="ingredients" placeholder="Enter Ingredients" required/><br>
-        <label for="instructions">instructions:</label><br/>
-        <input type="text" name="instructions" id="instructions" placeholder="Enter Intstructions" required /><br>
-        <label for="cookTime">Cook Time:</label><br/>
-        <input type="text" name="cookTime" id="cookTime" placeholder="Enter Cook Time " required /><br>
-        <input type="submit" Value="Submit Recipe" /><br>
+    <h1 class="new-title">Create a New Recipe</h1>
+    <form action="/recipes" method="POST" class="info">
+        <label for="title">TITLE:</label>
+        <input type="text" class="new-textbox" name="title" id="title" placeholder="Enter Recipe Title" required/><br>
+        <label for="ingredients">ingredients:</label>
+        <input type="text"  class="new-textbox" name="ingredients" id="ingredients" placeholder="Enter Ingredients" required/><br>
+        <label for="instructions">instructions:</label>
+        <input type="text"  class="new-textbox" name="instructions" id="instructions" placeholder="Enter Intstructions" required /><br>
+        <label for="cookTime">Cook Time:</label>
+        <input type="text"  class="new-textbox" name="cookTime" id="cookTime" placeholder="Enter Cook Time " required /><br>
+        <input type="submit" Value="Submit Recipe" class="new-button" /><br>
     </form>
 </body>
 </html>

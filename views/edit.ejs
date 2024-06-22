@@ -9,40 +9,43 @@
     <link rel="stylesheet" href="/css/edit.css">
   </head>
   <body>
-    <h1>Edit Recipe</h1>
-    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+    <h1 class="edit-title">Edit Recipe</h1>
+    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" class="edit-info">
       <label for="title">TITLE</label><br />
       <input
         type="text"
+        class="edit-textbox"
         name="title"
         id="title"
         value="<%= recipe.title %>"
-      /><br />
+      />
 
       <label for="ingredients">ingredients</label><br />
       <% for ( let i = 0; i < recipe.ingredients.length; i++) { %>
       <input
         type="text"
+        class="edit-textbox"
         name="ingredients[<%= i %>]"
         id="ingredients"
         value="<%= recipe.ingredients[i] %>"
-      /><br />
+      />
       <% } %>
 
       <label for="instructions">Instructions</label><br />
       <textarea name="instructions" id="instructions">
-<%= recipe.instructions %></textarea
-      ><br />
+      <%= recipe.instructions %></textarea
+      >
 
       <label for="cookTime">Cook Time</label><br />
       <input
         type="text"
+        class="edit-textbox"
         name="cookTime"
         id="cookTime"
         value="<%= recipe.cookTime %>"
-      /><br />
+      />
 
-      <input type="submit" value="Edit Recipe" />
+      <input type="submit" value="Edit Recipe" class="edit-button"/>
     </form>
   </body>
 </html>

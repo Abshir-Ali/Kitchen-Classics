@@ -5,3 +5,25 @@ body {
     margin: 0; /* Reset default margin */
 
 }
+
+.new-title {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-textbox {
+    font-family: "Inter", sans-serif;
+
+}
+.new-button {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: "Inter", sans-serif;
+}

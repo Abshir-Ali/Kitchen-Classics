@@ -76,11 +76,9 @@ app.delete('/recipes/:id', async (req, res) => {
 // Update
 
 app.put('/recipes/:id', async (req,res) => {
+   req.body.ingredients = req.body.ingredients.filter((ingredient) => ingredient != "")
     try {
-        if (typeof req.body.ingredients === 'array') {
-            req.body.ingredients = req.body.ingredients.split(',').map(ingredient => ingredient.trim()).filter(ingredient => ingredient !== '');
-        } 
-          const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
         console.log('Updated recipe:', updatedRecipe);
 
         if (!updatedRecipe) {
@@ -107,7 +105,10 @@ app.post("/recipes", async (req, res)=> {
 //Edit
 
 app.get('/recipes/:id/edit', async (req,res) => {
-   try {
+    // for(let i = 0; i < keys.length; i++) {
+    //     if (keys[i].includes('ingredients')
+    // }
+    try {
     const recipe = await Recipe.findById(req.params.id)
     if (!recipe) {
         return res.status(404).send('recipe not found')

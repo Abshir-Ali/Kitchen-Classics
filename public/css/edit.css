@@ -5,3 +5,31 @@ body {
     margin: 0; /* Reset default margin */
 
 }
+
+.edit-title {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+.edit-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-textbox {
+    font-family: "Inter", sans-serif;
+}
+
+#instructions {
+    font-family: "Inter", sans-serif;
+}
+
+.edit-button {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: "Inter", sans-serif;
+}
