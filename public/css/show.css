@@ -2,8 +2,7 @@ body {
     background-color: rgb(114, 112, 112);
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    margin: 0; 
-
+    margin: 0;
 }
 .web-title {
     display: block;
@@ -23,24 +22,8 @@ body {
 .link {
     font-size: 20px;
 }
-.new-title {
-    display: block;
-    text-align: center;
-    font-size: 30px;
-}
 
-.info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.new-textbox {
-    font-family: "Inter", sans-serif;
-
-}
-.new-button {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-family: "Inter", sans-serif;
+.recipe-img {
+    border-radius: 10px;
+    max-width: 300px;
 }

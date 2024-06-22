@@ -105,9 +105,6 @@ app.post("/recipes", async (req, res)=> {
 //Edit
 
 app.get('/recipes/:id/edit', async (req,res) => {
-    // for(let i = 0; i < keys.length; i++) {
-    //     if (keys[i].includes('ingredients')
-    // }
     try {
     const recipe = await Recipe.findById(req.params.id)
     if (!recipe) {

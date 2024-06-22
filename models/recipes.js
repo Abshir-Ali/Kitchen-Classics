@@ -7,7 +7,8 @@ const recipeSchema = new Schema({
   title: { type: String, required: true },
   ingredients: [{ type: String }],
   instructions: { type: String, required: true },
-  cookTime: { type: String, default: 0 },
+  image: {type: String},
+  cookTime: { type: String, default: '0' },
   createdAt: { type: String, default: () => moment().format('YYYY-MM-DD HH:mm:ss') }
 });
 

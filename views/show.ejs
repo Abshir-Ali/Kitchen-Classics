@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show WORKING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/show.css">
 </head>
 <body>
+    <%- include('partials/nav') %>
     <h1><%=singleRecipe.title %> </h1>
+    <% if (singleRecipe.image) {%> 
+        <img src="<%= singleRecipe.image %>" alt="IMAGE NOT WORKING" class="recipe-img">
+    <% } %>    
     <p><%=singleRecipe.ingredients %></p>
     <p><%=singleRecipe.instructions %></p>
     <p><%=singleRecipe.cookTime %></p>
     <p><%=singleRecipe.createdAt %></p>
 </body>
 </html>
+
+
+
 <!-- 
 
 ingredients: [{ type: String }],

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/new.css">
 </head>
 <body>
+    <%- include('partials/nav') %>
     <h1 class="new-title">Create a New Recipe</h1>
     <form action="/recipes" method="POST" class="info">
         <label for="title">TITLE:</label>
@@ -20,6 +21,8 @@
         <input type="text"  class="new-textbox" name="instructions" id="instructions" placeholder="Enter Intstructions" required /><br>
         <label for="cookTime">Cook Time:</label>
         <input type="text"  class="new-textbox" name="cookTime" id="cookTime" placeholder="Enter Cook Time " required /><br>
+        <label for="image">Image:</label>
+        <input type="text"  class="new-textbox" name="image" id="image" placeholder="Enter Image URL" /><br>
         <input type="submit" Value="Submit Recipe" class="new-button" /><br>
     </form>
 </body>

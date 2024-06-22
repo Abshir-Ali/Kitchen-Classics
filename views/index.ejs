@@ -10,13 +10,7 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <h1 class="web-title">KITCHEN CLASSICS</h1>
-    <nav class="nav-links">
-        <a class= "link" >Home</a>
-        <a href="/recipes/new" class= "link" id="new">New</a>
-        <a class= "link">Reccomendations</a>
-
-    </nav>
+    <%- include('partials/nav') %>
     <ul class = 'recipe'>
         <% for (let i=0; i < allRecipes.length; i++){ %>
     <li class="recipe-item">
