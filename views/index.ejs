@@ -11,7 +11,12 @@
 </head>
 <body>
     <h1 class="web-title">KITCHEN CLASSICS</h1>
-    <a href="/recipes/new" class="new">New</a>
+    <nav class="nav-links">
+        <a class= "link" >Home</a>
+        <a href="/recipes/new" class= "link" id="new">New</a>
+        <a class= "link">Reccomendations</a>
+
+    </nav>
     <ul class = 'recipe'>
         <% for (let i=0; i < allRecipes.length; i++){ %>
     <li class="recipe-item">

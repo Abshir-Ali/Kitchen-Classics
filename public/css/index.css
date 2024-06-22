@@ -9,6 +9,8 @@ body {
 .web-title {
     display: block;
     text-align: center;
+    font-size: 50px;
+
 }
 .recipe {
     margin: 0;
@@ -19,11 +21,17 @@ body {
     align-items: center;
 }
 
-.new {
-    display: block;
-    text-align: center;
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     margin-bottom: 20px;
-
+    width: 40%;
+    margin: 0 auto;
+}
+.link {
+    font-size: 20px;
 }
 
 .recipe-item {
@@ -38,11 +46,23 @@ body {
     color: blue
 }
 
+.recipe-title:hover {
+    font-weight: bold;
+}
+
 .recipe-actions a {
     margin-left: 10px; 
     text-decoration: none;
+    transition: font-weight 0.2s;
+
 
 }
+
+.recipe a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 
 .recipe-edit {
     color: rgb(56, 251, 127);
