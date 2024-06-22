@@ -32,7 +32,11 @@
     </li>
 
             <li class="recipe-info">
-            </li>
+                <p>Ingredients: <%=allRecipes[i].ingredients %></p>
+                <p>Instructions: <%=allRecipes[i].instructions %></p>
+                <p>Cook Time: <%=allRecipes[i].cookTime %></p>
+                <p class="recipe-createdAt"><%=allRecipes[i].createdAt %></p>
+                </li>
          <% } %>
 
     </ul>

@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(218, 213, 213);
+    background-color: rgb(114, 112, 112);
     font-family: "Inter", sans-serif;
     font-weight: 500;
     margin: 0; /* Reset default margin */
@@ -32,6 +32,10 @@ body {
 }
 .link {
     font-size: 20px;
+}
+
+#new {
+
 }
 
 .recipe-item {
@@ -74,7 +78,13 @@ body {
 .recipe-info {
     border: 3px solid black;
     width: 50%;
-    padding: 30px;
     border-radius: 10px;
     margin-top: 0;
+
+}
+
+.recipe-createdAt {
+    font-size: 12px;
+    color: rgb(225, 214, 214);
+    font-style: italic;
 }
