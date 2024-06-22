@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX WORKING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
+    <h1 class="web-title">KITCHEN CLASSICS</h1>
+    <a href="/recipes/new" class="new">New</a>
     <ul class = 'recipe'>
         <% for (let i=0; i < allRecipes.length; i++){ %>
-            <li>
-                <a href="/recipes/<%= allRecipes[i]._id %>"><%=allRecipes[i].title%></a>
-                <a href="/recipes/<%=  allRecipes[i]._id %>/edit">Edit</a>
-                <form id="delete-form-<%= allRecipes[i]._id %>" action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE" method="POST" style="display: inline;">
-                    <a  href="#" onclick="document.getElementById('delete-form-<%= allRecipes[i]._id %>').submit(); return false;">Delete</a>
-                </form>
+    <li class="recipe-item">
+        <div class="recipe-title">
+            <a href="/recipes/<%= allRecipes[i]._id %>" class = 'recipe-title'><%=allRecipes[i].title%></a>
+            </div>
+        <div class="recipe-actions">
+            <a href="/recipes/<%=  allRecipes[i]._id %>/edit" class="recipe-edit">EDIT</a>
+            <form id="delete-form-<%= allRecipes[i]._id %>" action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE" method="POST" style="display: inline;">
+                <a  href="#" onclick="document.getElementById('delete-form-<%= allRecipes[i]._id %>').submit(); return false;" class="recipe-delete">DELETE</a>
+            </form>
+        </div>
+    </li>
+
+            <li class="recipe-info">
             </li>
          <% } %>
 
     </ul>
-    <a href="/recipes/new"><button>Create New Recipe</button></a>
 </body>
 </html>
