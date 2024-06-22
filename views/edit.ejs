@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/edit.css">
   </head>
   <body>
     <h1>Edit Recipe</h1>
@@ -19,7 +23,7 @@
       <% for ( let i = 0; i < recipe.ingredients.length; i++) { %>
       <input
         type="text"
-        name="ingredients"
+        name="ingredients[<%= i %>]"
         id="ingredients"
         value="<%= recipe.ingredients[i] %>"
       /><br />

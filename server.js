@@ -77,12 +77,18 @@ app.delete('/recipes/:id', async (req, res) => {
 
 app.put('/recipes/:id', async (req,res) => {
     try {
-        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (typeof req.body.ingredients === 'array') {
+            req.body.ingredients = req.body.ingredients.split(',').map(ingredient => ingredient.trim()).filter(ingredient => ingredient !== '');
+        } 
+          const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        console.log('Updated recipe:', updatedRecipe);
+
         if (!updatedRecipe) {
             return res.status(404).send('Recipe not found')
         }
         res.redirect('/recipes')
     } catch (err) {
+        console.error('Error updating recipe:', err);
         res.status(500).send(err)
     }
 } )
