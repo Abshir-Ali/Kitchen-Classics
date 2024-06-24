@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(114, 112, 112);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+.web-title {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+    margin: 0 auto;
+}
+.link {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.Recommendations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    list-style-type: none;
+    }
+    .seedRecipes {
+        border: 3px solid black;
+        width: 40%;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
+}

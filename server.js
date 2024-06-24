@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const seedData = require('./models/seed_recipes.js')
+const seedRecipes = require('./models/seed_recipes');
 const methodOverride = require('method-override');
 
 const Recipe = require('./models/recipes')
@@ -58,6 +58,32 @@ app.get('/recipes', async (req, res) => {
     res.status(500).send(err)
    }
   })
+
+  app.get('/recipes/recommendations', (req, res) => {
+    res.render('recommendations', { seedRecipes });
+
+   
+});
+// recommendation
+// app.get('/recipes/recommendations', async (req., res) => {
+//     try {
+//         const seedRecipes = await Recipe.insertMany(seedData)
+//         console.log("added provided seed Recipe data", seedRecipes)
+//         res.render(seedRecipes)
+//     } catch (err) {
+//         console.error(err)
+//     }
+// }
+app.get('/recipes/recommendations', async (req, res) => {
+    try {
+        const seedRecipes = await Seed_data.find()
+        res.render('recommendations',{seedRecipes})
+    } catch (err) {
+        console.error(err);
+        res.status(500).send(err); // Send an error response
+    }
+})
+
 // new
 app.get('/recipes/new', (req,res)=>{
     res.render('new.ejs')
@@ -140,4 +166,4 @@ app.get('/recipes/:id', async (req,res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-});
+})
