@@ -45,11 +45,14 @@ body {
 }
 .recipe-title {
     flex: 1;
-    color: blue
+    color: blue;
+    margin: 0 auto;
+
 }
 
 .recipe-title:hover {
     font-weight: bold;
+    margin: 0 auto;
 }
 
 .recipe-actions a {

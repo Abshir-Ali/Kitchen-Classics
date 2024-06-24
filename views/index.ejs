@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX WORKING</title>
+    <title>Kitchen Classics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
     <ul class = 'recipe'>
         <% for (let i=0; i < allRecipes.length; i++){ %>
     <li class="recipe-item">
-        <div class="recipe-title">
+        <div>
             <a href="/recipes/<%= allRecipes[i]._id %>" class = 'recipe-title'><%=allRecipes[i].title%></a>
-            </div>
+        </div>
         <div class="recipe-actions">
             <a href="/recipes/<%=  allRecipes[i]._id %>/edit" class="recipe-edit">EDIT</a>
             <form id="delete-form-<%= allRecipes[i]._id %>" action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE" method="POST" style="display: inline;">
@@ -24,7 +24,6 @@
             </form>
         </div>
     </li>
-
             <li class="recipe-info">
                 <p>Ingredients: <%=allRecipes[i].ingredients %></p>
                 <p>Instructions: <%=allRecipes[i].instructions %></p>
