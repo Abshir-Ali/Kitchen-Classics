@@ -12,14 +12,17 @@
 <body>
     <%- include('partials/nav') %>
     <ul class="Recommendations">
-        <% for (let i=0; i < seedRecipes.length; i++){ %>
-            <li class="seedRecipes">
-                <p>title: <%=seedRecipes[i].title %></p>
-                <p>ingredients: <%=seedRecipes[i].ingredients %></p>
-                <p>instructions: <%=seedRecipes[i].instructions %></p>
-                <p >Cook Time: <%=seedRecipes[i].cookTime %></p>
-            </li>
+        <% for (let i = 0; i < seedRecipes.length; i++) { %>
+        <li class="seedRecipes">
+            <form action="/recipes/submitSeedData" method="POST">           
+            <p>Title: <input type="text" name="title" value="<%= seedRecipes[i].title %>"></p>
+            <p>Ingredients: <input type="text" name="ingredients" value="<%= Array.isArray(seedRecipes[i].ingredients) ? seedRecipes[i].ingredients.join(', ') : seedRecipes[i].ingredients %>"></p>
+            <p>Instructions: <textarea name="instructions"><%= seedRecipes[i].instructions %></textarea></p>
+            <p>Cook Time: <input type="text" name="cookTime" value="<%= seedRecipes[i].cookTime %>"></p>
+            <button type="submit">Submit Data</button>
+          </form>
+        </li>
         <% } %>
-    </ul>
+      </ul>
 </body>
 </html>

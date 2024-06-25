@@ -59,31 +59,30 @@ app.get('/recipes', async (req, res) => {
    }
   })
 
-  app.get('/recipes/recommendations', (req, res) => {
+
+  //recommendations
+  app.get('/recipes/recommendations', async (req, res) => {
     res.render('recommendations', { seedRecipes });
-
-   
 });
-// recommendation
-// app.get('/recipes/recommendations', async (req., res) => {
-//     try {
-//         const seedRecipes = await Recipe.insertMany(seedData)
-//         console.log("added provided seed Recipe data", seedRecipes)
-//         res.render(seedRecipes)
-//     } catch (err) {
-//         console.error(err)
-//     }
-// }
-app.get('/recipes/recommendations', async (req, res) => {
-    try {
-        const seedRecipes = await Seed_data.find()
-        res.render('recommendations',{seedRecipes})
-    } catch (err) {
-        console.error(err);
-        res.status(500).send(err); // Send an error response
-    }
-})
 
+//recommendations ID
+app.post('/recipes/submitSeedData', async (req, res) => {
+    try {
+      const { title, ingredients, instructions, cookTime } = req.body;
+      const seedData = {
+        title,
+        ingredients: ingredients.split(',').map(ingredient => ingredient.trim()),
+        instructions,
+        cookTime
+      }
+      console.log(seedData)
+      await Recipe.create(seedData);
+      res.redirect('/recipes');
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+  
 // new
 app.get('/recipes/new', (req,res)=>{
     res.render('new.ejs')
@@ -102,6 +101,8 @@ app.delete('/recipes/:id', async (req, res) => {
 // Update
 
 app.put('/recipes/:id', async (req,res) => {
+    console.log(req.body)
+    console.log(req.params)
    req.body.ingredients = req.body.ingredients.filter((ingredient) => ingredient != "")
     try {
         const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
