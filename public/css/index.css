@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(114, 112, 112);
+    background-color: rgb(154, 152, 152);
     font-family: "Inter", sans-serif;
     font-weight: 500;
     margin: 0; /* Reset default margin */
@@ -42,25 +42,28 @@ body {
 }
 .recipe-title {
     flex: 1;
-    color: blue;
+    color: rgb(9, 9, 114);
     margin: 0 auto;
-
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: font-weight 0.2s;
 }
 
 .recipe-title:hover {
     font-weight: bold;
     margin: 0 auto;
+    transition: font-weight 0.2s;
 }
 
 .recipe-actions a {
     margin-left: 10px; 
     text-decoration: none;
     transition: font-weight 0.2s;
-
-
 }
 
 .recipe a:hover {
+    font-size:20px;
     text-decoration: underline;
     font-weight: bold;
 }
@@ -68,10 +71,12 @@ body {
 
 .recipe-edit {
     color: rgb(56, 251, 127);
-    
+    font-size:20px;
+    font-weight: bold;
 }
 .recipe-delete {
     color: #fb3838;
+    font-size:20px;
 }
 .recipe-info {
     border: 3px solid black;

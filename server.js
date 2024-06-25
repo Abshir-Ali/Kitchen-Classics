@@ -22,20 +22,6 @@ async function connectToMongo() {
   }
   connectToMongo()
 
-//   Seed Data
-//   async function insertRecipeData(seedData) {
-//     try {
-//       const recipes = await Recipe.insertMany(seedData);
-//       console.log("added provided vampire data", recipes);
-//     } catch (err) {
-//       console.error(err)
-//       process.exit(1)
-//     } 
-//   }
-  
-//   insertRecipeData(seedData)
-
-
   //MIDDLEWARE
   app.use(express.urlencoded({ extended: true }));
   app.set('view engine', 'ejs')
@@ -49,6 +35,7 @@ async function connectToMongo() {
   app.get('/', (req, res) => {
       res.send('Hello');
   });
+
 //Index
 app.get('/recipes', async (req, res) => {
    try {
@@ -58,7 +45,6 @@ app.get('/recipes', async (req, res) => {
     res.status(500).send(err)
    }
   })
-
 
   //recommendations
   app.get('/recipes/recommendations', async (req, res) => {
@@ -87,6 +73,7 @@ app.post('/recipes/submitSeedData', async (req, res) => {
 app.get('/recipes/new', (req,res)=>{
     res.render('new.ejs')
 })
+
 //Delete
 app.delete('/recipes/:id', async (req, res) => {
     try {
@@ -96,10 +83,9 @@ app.delete('/recipes/:id', async (req, res) => {
     } catch (err){
         res.status(500).send(err)
     }
-
 })
-// Update
 
+// Update
 app.put('/recipes/:id', async (req,res) => {
     console.log(req.body)
     console.log(req.params)
@@ -117,6 +103,7 @@ app.put('/recipes/:id', async (req,res) => {
         res.status(500).send(err)
     }
 } )
+
 //Create
 app.post("/recipes", async (req, res)=> {
     try {
@@ -130,7 +117,6 @@ app.post("/recipes", async (req, res)=> {
 })
 
 //Edit
-
 app.get('/recipes/:id/edit', async (req,res) => {
     try {
     const recipe = await Recipe.findById(req.params.id)

@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(114, 112, 112);
+    background-color: rgb(154, 152, 152);
     font-family: "Inter", sans-serif;
     font-weight: 500;
     margin: 0;
@@ -30,10 +30,51 @@ body {
     margin: 0;
     list-style-type: none;
     }
-    .seedRecipes {
+
+.seedRecipes {
         border: 3px solid black;
         width: 40%;
         margin-bottom: 20px;
         padding: 20px;
         border-radius: 10px;
+}
+.rec-subtitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+.rec-text {
+    background-color: transparent;
+    font-family: "Inter", sans-serif;
+     border: 0;
+     width: 100%;
+    box-sizing: border-box;
+    padding-left: 0;
+    color: black;
+    font-style: bold;
+    font-size: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: auto; /* Let the height adjust based on the content */
+    min-height: 200px; /* Minimum height to show a few lines */
+    max-height: 500px; /* Maximum height with scrolling */
+    overflow-y: auto; /* Add vertical scrollbar if content exceeds max-height */
+    resize: none; /* Disable textarea resizing */
+    border: none; /* Remove border */
+}
+input[readonly] {
+    background-color: transparent;
+    color: black;
+    border: none;
+    pointer-events: none; /* Make inputs non-clickable */
+}
+
+button {
+    font-family: "Inter", sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 80px;
+    height: 40px;
+    background-color: blueviolet;
 }

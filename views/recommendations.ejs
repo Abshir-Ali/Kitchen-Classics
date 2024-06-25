@@ -15,10 +15,10 @@
         <% for (let i = 0; i < seedRecipes.length; i++) { %>
         <li class="seedRecipes">
             <form action="/recipes/submitSeedData" method="POST">           
-            <p>Title: <input type="text" name="title" value="<%= seedRecipes[i].title %>"></p>
-            <p>Ingredients: <input type="text" name="ingredients" value="<%= Array.isArray(seedRecipes[i].ingredients) ? seedRecipes[i].ingredients.join(', ') : seedRecipes[i].ingredients %>"></p>
-            <p>Instructions: <textarea name="instructions"><%= seedRecipes[i].instructions %></textarea></p>
-            <p>Cook Time: <input type="text" name="cookTime" value="<%= seedRecipes[i].cookTime %>"></p>
+            <p class="rec-subtitle" >Title: <input type="text" name="title" value="<%= seedRecipes[i].title %>" class="rec-text" readonly></p>
+            <p class="rec-subtitle">Ingredients: <input type="text" name="ingredients" value="<%= Array.isArray(seedRecipes[i].ingredients) ? seedRecipes[i].ingredients.join(', ') : seedRecipes[i].ingredients %>"class="rec-text" readonly></p>
+            <p class="rec-subtitle">Instructions: <textarea name="instructions" class="rec-text" id="rec-instructions" readonly><%= seedRecipes[i].instructions %></textarea></p>
+            <p class="rec-subtitle">Cook Time: <input type="text" name="cookTime" value="<%= seedRecipes[i].cookTime %>" class="rec-text" readonly></p>
             <button type="submit">Submit Data</button>
           </form>
         </li>
