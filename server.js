@@ -52,7 +52,7 @@ async function connectToMongo() {
 //Index
 app.get('/recipes', async (req, res) => {
    try {
-    const allRecipes = await Recipe.find()
+    const allRecipes = await Recipe.find().sort({createdAt: -1})
     res.render('index', {allRecipes})
    } catch (err) {
     res.status(500).send(err)
