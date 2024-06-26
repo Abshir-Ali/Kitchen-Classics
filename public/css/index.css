@@ -85,10 +85,15 @@ body {
     margin-top: 0;
 
 }
-.textbox-info {
+.textbox-title {
     color: rgb(0, 0, 0);
     font-weight: bold;
 }
+.textbox-info {
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+}
+
 #recipe-createdAt {
     font-size: 12px;
     color: rgb(225, 214, 214);

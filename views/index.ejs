@@ -25,10 +25,10 @@
         </div>
     </li>
             <li class="recipe-info">
-                <p class="textbox-info">Ingredients: <%=allRecipes[i].ingredients %></p>
-                <p class="textbox-info">Instructions: <%=allRecipes[i].instructions %></p>
-                <p class="textbox-info">Cook Time: <%=allRecipes[i].cookTime %></p>
-                <p class="textbox-info" id="recipe-createdAt"><%=allRecipes[i].createdAt %></p>
+                <p class="textbox-title">Ingredients:<span class="textbox-info"><%=allRecipes[i].ingredients %></span></p>
+                <p class="textbox-title">Instructions:<span class="textbox-info"><%=allRecipes[i].instructions %></span> </p>
+                <p class="textbox-title">Cook Time:<span class="textbox-info"><%=allRecipes[i].cookTime %></span> </p>
+                <p class="textbox-title" id="recipe-createdAt"><span class="textbox-info"><%=allRecipes[i].createdAt %></span></p>
                 </li>
          <% } %>
 
