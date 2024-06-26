@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitchen Classics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
     <%- include('partials/nav') %>
-    <ul class = 'recipe'>
-        <% for (let i=0; i < allRecipes.length; i++){ %>
-    <li class="recipe-item">
+    <ul class="recipe">
+      <% for (let i=0; i < allRecipes.length; i++){ %>
+      <li class="recipe-item">
         <div>
-            <a href="/recipes/<%= allRecipes[i]._id %>" class = 'recipe-title'><%=allRecipes[i].title%></a>
+          <a href="/recipes/<%= allRecipes[i]._id %>" class="recipe-title"
+            ><%=allRecipes[i].title%></a
+          >
         </div>
         <div class="recipe-actions">
-            <a href="/recipes/<%=  allRecipes[i]._id %>/edit" class="recipe-edit">EDIT</a>
-            <form id="delete-form-<%= allRecipes[i]._id %>" action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE" method="POST" style="display: inline;">
-                <a  href="#" onclick="document.getElementById('delete-form-<%= allRecipes[i]._id %>').submit(); return false;" class="recipe-delete">DELETE</a>
-            </form>
+          <a href="/recipes/<%=  allRecipes[i]._id %>/edit" class="recipe-edit"
+            >EDIT</a
+          >
+          <form
+            id="delete-form-<%= allRecipes[i]._id %>"
+            action="/recipes/<%= allRecipes[i]._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline"
+          >
+            <a
+              href="#"
+              onclick="document.getElementById('delete-form-<%= allRecipes[i]._id %>').submit(); return false;"
+              class="recipe-delete"
+              >DELETE</a
+            >
+          </form>
         </div>
-    </li>
-            <li class="recipe-info">
-                <p class="textbox-title">Ingredients:<span class="textbox-info"><%=allRecipes[i].ingredients %></span></p>
-                <p class="textbox-title">Instructions:<span class="textbox-info"><%=allRecipes[i].instructions %></span> </p>
-                <p class="textbox-title">Cook Time:<span class="textbox-info"><%=allRecipes[i].cookTime %></span> </p>
-                <p class="textbox-title" id="recipe-createdAt"><span class="textbox-info"><%=allRecipes[i].createdAt %></span></p>
-                </li>
-         <% } %>
-
+      </li>
+      <li class="recipe-info">
+        <p class="textbox-title">
+          Ingredients:<span class="textbox-info"
+            ><%=allRecipes[i].ingredients %></span
+          >
+        </p>
+        <p class="textbox-title">
+          Instructions:<span class="textbox-info"
+            ><%=allRecipes[i].instructions %></span
+          >
+        </p>
+        <p class="textbox-title">
+          Cook Time:<span class="textbox-info"
+            ><%=allRecipes[i].cookTime %></span
+          >
+        </p>
+        <p class="textbox-title" id="recipe-createdAt">
+          <span class="textbox-info"><%=allRecipes[i].createdAt %></span>
+        </p>
+      </li>
+      <% } %>
     </ul>
-</body>
+  </body>
 </html>

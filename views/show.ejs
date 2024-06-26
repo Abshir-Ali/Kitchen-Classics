@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show WORKING</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/show.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/show.css" />
+  </head>
+  <body>
     <%- include('partials/nav') %>
-    <div class="show-info"> 
-        <h1><%=singleRecipe.title %> </h1>
-        <% if (singleRecipe.image) { %> 
-            <img src="<%= singleRecipe.image %>" alt="IMAGE NOT WORKING" class="recipe-img">
-            <% } %>    
-            <p class="recipe-content" id="ingredients"><span class="span-content">Ingredients: </span><%=singleRecipe.ingredients %></p>
-            <p class="recipe-content" id="instructions"><span class="span-content">instructions: </span>  <%=singleRecipe.instructions %></p>
-            <p class="recipe-content" id="cookTime"><span class="span-content">cookTime: </span><%=singleRecipe.cookTime %></p>
-            <p class="recipe-content" id="createdAt"><span class="span-content">createdAt: </span><%=singleRecipe.createdAt %></p>
-        </div>
-        <div class="show-info2">
-        </div>
-</body>
+    <div class="show-info">
+      <h1><%=singleRecipe.title %></h1>
+      <% if (singleRecipe.image) { %>
+      <img
+        src="<%= singleRecipe.image %>"
+        alt="IMAGE NOT WORKING"
+        class="recipe-img"
+      />
+      <% } %>
+      <p class="recipe-content" id="ingredients">
+        <span class="span-content">Ingredients: </span
+        ><%=singleRecipe.ingredients %>
+      </p>
+      <p class="recipe-content" id="instructions">
+        <span class="span-content">instructions: </span>
+        <%=singleRecipe.instructions %>
+      </p>
+      <p class="recipe-content" id="cookTime">
+        <span class="span-content">cookTime: </span><%=singleRecipe.cookTime %>
+      </p>
+      <p class="recipe-content" id="createdAt">
+        <span class="span-content">createdAt: </span><%=singleRecipe.createdAt
+        %>
+      </p>
+    </div>
+    <div class="show-info2"></div>
+  </body>
 </html>
-
-
-
-<!-- 
-
-ingredients: [{ type: String }],
-  instructions: { type: String, required: true },
-  cookTime: { type: String, default: 0 },
-  createdAt: { type: Date, default: Date.now }, -->

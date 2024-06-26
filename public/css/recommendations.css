@@ -1,80 +1,79 @@
 body {
-    background-color: rgb(126, 111, 111);
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    margin: 0;
+  background-color: rgb(126, 111, 111);
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  margin: 0;
 }
 .web-title {
-    display: block;
-    text-align: center;
-    font-size: 50px;
-
+  display: block;
+  text-align: center;
+  font-size: 50px;
 }
 .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 40%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+  margin: 0 auto;
 }
 .link {
-    font-size: 20px;
-    margin-bottom: 40px;
+  font-size: 20px;
+  margin-bottom: 40px;
 }
 
 .Recommendations {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    list-style-type: none;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  list-style-type: none;
+}
 
 .seedRecipes {
-        border: 3px solid black;
-        width: 40%;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 10px;
+  border: 3px solid black;
+  width: 40%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 .rec-subtitle {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 .rec-text {
-    background-color: transparent;
-    font-family: "Inter", sans-serif;
-     border: 0;
-     width: 100%;
-    box-sizing: border-box;
-    padding-left: 0;
-    color: black;
-    font-style: bold;
-    font-size: 20px;
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  border: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 0;
+  color: black;
+  font-style: bold;
+  font-size: 20px;
 }
 
 textarea {
-    width: 100%;
-    height: auto; /* Let the height adjust based on the content */
-    min-height: 200px; /* Minimum height to show a few lines */
-    max-height: 500px; /* Maximum height with scrolling */
-    overflow-y: auto; /* Add vertical scrollbar if content exceeds max-height */
-    resize: none; /* Disable textarea resizing */
-    border: none; /* Remove border */
+  width: 100%;
+  height: auto; 
+  min-height: 200px; 
+  max-height: 500px; 
+  overflow-y: auto; 
+  resize: none; 
+  border: none; 
 }
 input[readonly] {
-    background-color: transparent;
-    color: black;
-    border: none;
-    pointer-events: none; /* Make inputs non-clickable */
+  background-color: transparent;
+  color: black;
+  border: none;
+  pointer-events: none; 
 }
 
 button {
-    font-family: "Inter", sans-serif;
-    border-radius: 5px;
-    font-weight: bold;
-    width: 80px;
-    height: 40px;
-    background-color: blueviolet;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 80px;
+  height: 40px;
+  background-color: blueviolet;
 }

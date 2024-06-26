@@ -3,14 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/edit.css" />
   </head>
   <body>
     <h1 class="edit-title">Edit Recipe</h1>
-    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" class="edit-info">
+    <form
+      action="/recipes/<%= recipe._id %>?_method=PUT"
+      method="POST"
+      class="edit-info"
+    >
       <label for="title">TITLE</label><br />
       <input
         type="text"
@@ -32,7 +39,9 @@
       <% } %>
 
       <label for="instructions">Instructions</label><br />
-      <textarea name="instructions" id="instructions"><%=recipe.instructions%></textarea>
+      <textarea name="instructions" id="instructions">
+<%=recipe.instructions%></textarea
+      >
 
       <label for="cookTime">Cook Time</label><br />
       <input
@@ -43,7 +52,7 @@
         value="<%= recipe.cookTime %>"
       />
 
-      <input type="submit" value="Edit Recipe" class="edit-button"/>
+      <input type="submit" value="Edit Recipe" class="edit-button" />
     </form>
   </body>
 </html>

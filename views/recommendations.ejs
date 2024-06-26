@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recommendations</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/recommendations.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/recommendations.css" />
+  </head>
+  <body>
     <%- include('partials/nav') %>
     <ul class="Recommendations">
-        <% for (let i = 0; i < seedRecipes.length; i++) { %>
-        <li class="seedRecipes">
-            <form action="/recipes/submitSeedData" method="POST">           
-            <p class="rec-subtitle" >Title: <input type="text" name="title" value="<%= seedRecipes[i].title %>" class="rec-text" readonly></p>
-            <p class="rec-subtitle">Ingredients: <input type="text" name="ingredients" value="<%= Array.isArray(seedRecipes[i].ingredients) ? seedRecipes[i].ingredients.join(', ') : seedRecipes[i].ingredients %>"class="rec-text" readonly></p>
-            <p class="rec-subtitle">Instructions: <textarea name="instructions" class="rec-text" id="rec-instructions" readonly><%= seedRecipes[i].instructions %></textarea></p>
-            <p class="rec-subtitle">Cook Time: <input type="text" name="cookTime" value="<%= seedRecipes[i].cookTime %>" class="rec-text" readonly></p>
-            <button type="submit">Submit Data</button>
-          </form>
-        </li>
-        <% } %>
-      </ul>
-</body>
+      <% for (let i = 0; i < seedRecipes.length; i++) { %>
+      <li class="seedRecipes">
+        <form action="/recipes/submitSeedData" method="POST">
+          <p class="rec-subtitle">
+            Title:
+            <input
+              type="text"
+              name="title"
+              value="<%= seedRecipes[i].title %>"
+              class="rec-text"
+              readonly
+            />
+          </p>
+          <p class="rec-subtitle">
+            Ingredients:
+            <input
+              type="text"
+              name="ingredients"
+              value="<%= Array.isArray(seedRecipes[i].ingredients) ? seedRecipes[i].ingredients.join(', ') : seedRecipes[i].ingredients %>"
+              class="rec-text"
+              readonly
+            />
+          </p>
+          <p class="rec-subtitle">
+            Instructions:
+            <textarea
+              name="instructions"
+              class="rec-text"
+              id="rec-instructions"
+              readonly
+            >
+<%= seedRecipes[i].instructions %></textarea
+            >
+          </p>
+          <p class="rec-subtitle">
+            Cook Time:
+            <input
+              type="text"
+              name="cookTime"
+              value="<%= seedRecipes[i].cookTime %>"
+              class="rec-text"
+              readonly
+            />
+          </p>
+          <button type="submit">Submit Data</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+  </body>
 </html>

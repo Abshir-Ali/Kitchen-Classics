@@ -1,101 +1,97 @@
 body {
-    background-color: rgb(126, 111, 111);
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    margin: 0; /* Reset default margin */
-
+  background-color: rgb(126, 111, 111);
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  margin: 0;
 }
 
 .web-title {
-    display: block;
-    text-align: center;
-    font-size: 50px;
-
+  display: block;
+  text-align: center;
+  font-size: 50px;
 }
 .recipe {
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    width: 40%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 40%;
+  margin: 0 auto;
 }
 .link {
-    font-size: 20px;
+  font-size: 20px;
 }
 .recipe-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
 }
 .recipe-title {
-    flex: 1;
-    color: rgb(9, 9, 114);
-    margin: 0 auto;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: font-weight 0.2s;
+  flex: 1;
+  color: rgb(9, 9, 114);
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: font-weight 0.2s;
 }
 
 .recipe-title:hover {
-    font-weight: bold;
-    margin: 0 auto;
-    transition: font-weight 0.2s;
+  font-weight: bold;
+  margin: 0 auto;
+  transition: font-weight 0.2s;
 }
 
 .recipe-actions a {
-    margin-left: 10px; 
-    text-decoration: none;
-    transition: font-weight 0.2s;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: font-weight 0.2s;
 }
 
 .recipe a:hover {
-    font-size:20px;
-    text-decoration: underline;
-    font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+  font-weight: bold;
 }
-
 
 .recipe-edit {
-    color: rgb(56, 251, 127);
-    font-size:20px;
-    font-weight: bold;
+  color: rgb(56, 251, 127);
+  font-size: 20px;
+  font-weight: bold;
 }
 .recipe-delete {
-    color: #fb3838;
-    font-size:20px;
+  color: #fb3838;
+  font-size: 20px;
 }
 .recipe-info {
-    border: 3px solid black;
-    width: 50%;
-    border-radius: 10px;
-    margin-top: 0;
-
+  border: 3px solid black;
+  width: 50%;
+  border-radius: 10px;
+  margin-top: 0;
 }
 .textbox-title {
-    color: rgb(0, 0, 0);
-    font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 .textbox-info {
-    color: rgb(0, 0, 0);
-    font-weight: normal;
+  color: rgb(0, 0, 0);
+  font-weight: normal;
 }
 
 #recipe-createdAt {
-    font-size: 12px;
-    color: rgb(225, 214, 214);
-    font-style: italic;
+  font-size: 12px;
+  color: rgb(225, 214, 214);
+  font-style: italic;
 }
