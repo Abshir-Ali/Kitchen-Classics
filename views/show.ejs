@@ -15,13 +15,13 @@
         <h1><%=singleRecipe.title %> </h1>
         <% if (singleRecipe.image) { %> 
             <img src="<%= singleRecipe.image %>" alt="IMAGE NOT WORKING" class="recipe-img">
-        <% } %>    
-        </div>
-        <div class="show-info2">
+            <% } %>    
             <p class="recipe-content" id="ingredients"><span class="span-content">Ingredients: </span><%=singleRecipe.ingredients %></p>
             <p class="recipe-content" id="instructions"><span class="span-content">instructions: </span>  <%=singleRecipe.instructions %></p>
             <p class="recipe-content" id="cookTime"><span class="span-content">cookTime: </span><%=singleRecipe.cookTime %></p>
             <p class="recipe-content" id="createdAt"><span class="span-content">createdAt: </span><%=singleRecipe.createdAt %></p>
+        </div>
+        <div class="show-info2">
         </div>
 </body>
 </html>

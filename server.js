@@ -2,14 +2,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const seedRecipes = require('./models/seed_recipes');
 const methodOverride = require('method-override');
-
-const Recipe = require('./models/recipes')
+const recipesController = require('./controllers/routes')
+require('dotenv').config()
 const PORT = process.env.PORT || 3000;
 
 //Configuration
-const mongoURI = `mongodb://localhost:27017/recipes`
+const mongoURI = process.env.MONGOURI
 
 // Connect to Mongo
 async function connectToMongo() {
@@ -27,6 +26,7 @@ async function connectToMongo() {
   app.set('view engine', 'ejs')
   app.use(methodOverride('_method'))
   app.use(express.static('public'));
+  app.use('/recipes', recipesController)
 
   
   //REMEMBER INDUCES
@@ -35,121 +35,6 @@ async function connectToMongo() {
   app.get('/', (req, res) => {
       res.send('Hello');
   });
-
-//Index
-app.get('/recipes', async (req, res) => {
-   try {
-    const allRecipes = await Recipe.find().sort({createdAt: -1})
-    res.render('index', {allRecipes})
-   } catch (err) {
-    res.status(500).send(err)
-   }
-  })
-
-  //recommendations
-  app.get('/recipes/recommendations', async (req, res) => {
-    res.render('recommendations', { seedRecipes });
-});
-
-//recommendations ID
-app.post('/recipes/submitSeedData', async (req, res) => {
-    try {
-      const { title, ingredients, instructions, cookTime } = req.body;
-      const seedData = {
-        title,
-        ingredients: ingredients.split(',').map(ingredient => ingredient.trim()),
-        instructions,
-        cookTime
-      }
-      console.log(seedData)
-      await Recipe.create(seedData);
-      res.redirect('/recipes');
-    } catch (err) {
-      res.status(500).send(err);
-    }
-  });
-  
-// new
-app.get('/recipes/new', (req,res)=>{
-    res.render('new.ejs')
-})
-
-//Delete
-app.delete('/recipes/:id', async (req, res) => {
-    try {
-        const recipeId = req.params.id
-        await Recipe.deleteOne({_id: recipeId})
-        res.redirect('/recipes')  
-    } catch (err){
-        res.status(500).send(err)
-    }
-})
-
-// Update
-app.put('/recipes/:id', async (req,res) => {
-    console.log(req.body)
-    console.log(req.params)
-   req.body.ingredients = req.body.ingredients.filter((ingredient) => ingredient != "")
-    try {
-        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        console.log('Updated recipe:', updatedRecipe);
-
-        if (!updatedRecipe) {
-            return res.status(404).send('Recipe not found')
-        }
-        res.redirect('/recipes')
-    } catch (err) {
-        console.error('Error updating recipe:', err);
-        res.status(500).send(err)
-    }
-} )
-
-//Create
-app.post("/recipes", async (req, res)=> {
-    try {
-        req.body.ingredients = req.body.ingredients.split(',').map(ingredient => ingredient.trim());
-        await Recipe.create(req.body)
-        res.redirect('/recipes')
-    } catch (err) {
-        console.error("Error creating recipe:", err); 
-        res.status(500).send(err)
-    }
-})
-
-//Edit
-app.get('/recipes/:id/edit', async (req,res) => {
-    try {
-    const recipe = await Recipe.findById(req.params.id)
-    if (!recipe) {
-        return res.status(404).send('recipe not found')
-    } 
-    res.render('edit.ejs', {
-        recipe
-    })
-   } catch (err) {
-    res.status(500).send(err)
-   }
-})
-
-//Show
-app.get('/recipes/:id', async (req,res) => {
-    try {
-        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-            return res.status(404).send('Invalid recipe id');
-        }
-
-     const singleRecipe = await Recipe.findOne({ _id: req.params.id })
-
-     if (!singleRecipe) {
-        return res.status(404).send('Recipe not found');
-    }
-
-     res.render('show', {singleRecipe})
-    } catch (err) {
-    console.error(err)
-     res.status(500).send('Error fetching recipe')
-    }
-   })
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
